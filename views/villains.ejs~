@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function () {
+                 $.ajax({
+                    url: "villains/select",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    complete: function (data) {
+                        $('div#villains').html(data.responseText);
+                    }
+                });
+
+                $('#villain-submit').click(function () {
+                    var payload = {
+                        V_name: $('#villain-list').val(),
+                    };
+
+                    $.ajax({
+                        url: "/villains",
+                        type: "POST",
+                        contentType: "application/json",
+                        processData: false,
+                        data: JSON.stringify(payload),
+                        complete: function (data) {
+                            $('#output').html(data.responseText);
+                        }
+                    });
+            });
+        });
+      </script>
+  </head>
+  <div id="header" style="background-color:#2E2E2E;width:700px;">
+    <h1 style="margin-bottom:0; text-align:center"><font color="White">Villains</font></h1></div>
+  <% include menu %>
+
+  <div id="content" style="background-color:#848484;height:250px;width:600px;float:left; text-align:left">
+    
+<!-- <div id="villains">
+<b>Villain Name</b>
+    <form method="GET">
+      <select id="villian-list" name="v_name">
+      </select>-->
+<div id="villains"></div>
+<input id="villain-submit" type="submit" />
+<p id="output"></p>
+  </div>
+
+ 
+
+<% include footer %>
+</html> 

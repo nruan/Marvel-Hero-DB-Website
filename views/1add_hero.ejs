@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+  <head>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#hero-submit').click(function () {
+                var payload = {
+                    Hero_name: $('#hero-name').val(),
+                    Origin: $('#Origin').val()
+                };
+
+        console.log(payload);
+
+                $.ajax({
+                    url: "/hero/create",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    data: JSON.stringify(payload),
+                    complete: function (data) {
+                        $('#output').html(data.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+  </head>
+<% include menu %>
+  <body>
+    <h3>Enter a username to enter into the database:</h3>
+    Hero: <input id="hero-name" type="text" /> <br />
+    Origin: <input id="Origin" type="text" /> <br />
+    <input id="hero-submit" type="submit" />
+    <p id="output"></p>
+  </body>
+<% include footer %>
+</html>

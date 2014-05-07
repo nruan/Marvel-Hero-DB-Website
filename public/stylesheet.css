@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/* CSS Document */
+*
+{
+
+ font-family:Verdana Verdana, Geneva, sans-serif 
+}
+
+a:link{color:#1428bc;} /*unvisited*/
+a:visited {color:red;} /*visited*/
+a:hover {color:#FF00FF;}  /* mouse over */
+a:active {color:#0000FF;}  /* selected*/ 
+a{text-decoration:none;}
+
+div.title {
+  font-size:18px;
+  font-style:arial;
+  padding-bottom:20px;
+}
+
+table.users {
+    border-collapse:collapse;
+    /* width:500px; */
+}
+
+
+table.users td {
+    /* border:solid 1px; */
+    padding-left:10px;    
+    padding-right:10px;
+    padding-top:5px;
+}
+
+table.users .rightalign {
+    text-align: right;
+}
+
+table.users th {
+    border-bottom:solid 1px #999;
+    padding-left:10px;    
+    padding-right:10px;
+    text-align:left;
+}
+
+#header
+{
+    background-color:#2E2E2E;
+    width:700px;
+}
+
+#menu
+{
+    background-color:#B6B607;
+    height:630px;
+    width:100px;
+    float:left; 
+    text-align:center;
+}
+
+#content
+{
+    background-color:#848484;
+    height:630px;
+    width:600px;
+    float:left;
+    text-align:center
+}
+
+#footer
+{
+    background-color:#b9bcc6;
+    clear:both;
+    text-align:center;
+    width:700px
+}

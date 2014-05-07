@@ -1,0 +1,18 @@
+<!DOCTYPE hmtl>
+ <head>
+    <title>S.H.I.E.L.D Database</title>
+  </head>
+    <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+
+    <div id="header" style="background-color:#2E2E2E;width:700px;">
+    <h1 style="margin-bottom:0; text-align:center"><font color="White">Shield Database </font></h1></div>
+<% include menu %>
+    <div id="content" style="background-color:#848484;height:630px;width:600px;float:left;   text-align:left">
+        <h1>Introduction:</h1>
+        <b>This website will allow you to discover info about some of your favorite heroes and villains in the marvel universe. You will be able to discover their powers, abilities, their origin, and who their arch nemesis is.</b> </br>
+</div>
+
+
+<% var hideBackLink = true; %>
+<% include footer %>
+</html>

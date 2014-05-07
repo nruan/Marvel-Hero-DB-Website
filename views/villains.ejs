@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function () {
+                 $.ajax({
+                    url: "/villains/select",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    complete: function (data) {
+                        $('div#villains').html(data.responseText);
+                    }
+                });
+
+                $('#villain-submit').click(function () {
+                    var payload = {
+                        V_name: $('#villain-list').val(),
+                    };
+
+                    $.ajax({
+                        url: "/villains",
+                        type: "POST",
+                        contentType: "application/json",
+                        processData: false,
+                        data: JSON.stringify(payload),
+                        complete: function (data) {
+                            $('#output').html(data.responseText);
+                        }
+                    });
+            });
+        });
+      </script>
+  </head>
+  <div id="header" style="background-color:#2E2E2E;width:700px;">
+    <h1 style="margin-bottom:0; text-align:center"><font color="White">Villains</font></h1></div>
+  <% include menu %>
+
+  <div id="content" style="background-color:#848484;height:700px;width:600px;float:left; text-align:left">
+    <h3>Villain Name</h3>
+
+<div id="villains"></div>
+
+<input id="villain-submit" type="submit" />
+<p id="output"></p>
+ 
+<img class="pic" src="http://www.cartoontreasure.com/wallpapers/2013-09/red-skulls-minimalism-free-desktop-wallpaper-1920x1080.jpg" alt="Hero-pic" height:"260" width="600" align="bottom">
+
+ </div>
+
+ 
+
+<% include footer %>
+</html> 

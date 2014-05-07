@@ -1,0 +1,10 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Superhero</title>
+    <link href="/style.css" rel="stylesheet" />
+</head>
+<body>
+<h1>Super Hero Header </h1>
+<h2><%= locals.settings.subtitle %></h2>
+<div id="content">

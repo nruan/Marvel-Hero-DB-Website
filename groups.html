@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+	<!--
+            $('#user-submit').click(function () {
+                var payload = {
+                    name: $('#name').val(),
+                    Badges: $('#num_badges').val(),
+	            Pokemon: $('#pokemon1').val(),<!-- $('#pokemon').val(), $('#pokemon').val(),
+
+		    };
+	
+	console.log(payload); -->
+	<!--
+        $.ajax({
+                    url: "/participants",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    data: JSON.stringify(payload),
+                    complete: function (data) {
+                        $('#output').html(data.responseText);
+                    }
+                });-->
+	         $.ajax({
+                    url: "users/select",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    complete: function (data) {
+                        $('div#users').html(data.responseText);
+                    }
+                });
+
+                $('#user-submit').click(function () {
+                    var payload = {
+                        id: $('#user-list').val(),
+                    };
+                    
+                    $.ajax({
+                        url: "/user",
+                        type: "POST",
+                        contentType: "application/json",
+                        processData: false,
+                        data: JSON.stringify(payload),
+                        complete: function (data) {
+                            $('#output').html(data.responseText);
+                        }
+                    });
+            });
+        });
+    </script>
+  </head>
+    <div id="header" style="background-color:#2E2E2E;width:700px;">
+    <h1 style="margin-bottom:0; text-align:center"><font color="White">Superhero Groups</font></h1></div>
+    
+<div id="menu" style="background-color:#B6B607;height:250px;width:100px;float:left; text-align:center;">
+        <b><i>Menu</i></b><br>
+	<a href="/">Home</a><br />
+    <a href="/heroes/">Heroes</a> <br />
+    <a href="/villains/">Villains</a>
+    <a href="/groups/">Superhero Groups</a>
+    <a href="/about/">About</a>
+</div> 
+    
+     <div id="content" style="background-color:#848484;height:250px;width:600px;float:left;text-align:left">
+     
+
+  <!--Name: <input id="name" type="text" /> <br />-->
+    
+<!--   <input id="user-submit" type="submit" />
+    <form method="GET">
+            <select id="user" name="users">
+              <option value="1">Brock</option>
+              <option value="2">Nico</option>
+              <option value="3">Misty</option>
+            </select>
+            <br />
+            <input type="submit">
+        </form>
+    <p id="output"></p> -->
+
+
+    <div id="groups">
+<b>Group Name</b>
+    <form method="GET">
+      <select id="groups" name="groups">
+      </select>
+      <input id="user-submit" type="submit" />
+      <p id="output"></p>
+      </form></div>
+ 
+ </div>
+  
+  
+<div id="footer" style="background-color:#b9bcc6;clear:both;text-align:center;width:700px">
+Made by Nico Ruan</div>
+</html>

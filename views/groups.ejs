@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+      <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function () {
+	$.ajax({
+                    url: "/groups/table",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    complete: function (data) {
+                        $('div#table').html(data.responseText);
+                    }
+                });
+
+                
+                        url: "/groups/info",
+                        type: "POST",
+                        contentType: "application/json",
+                        processData: false,
+                        data: JSON.stringify(payload),
+                        complete: function (data) {
+                            $('#output').html(data.responseText);
+                        }
+                    });
+            });
+        });
+ </script>
+  </head>
+    <div id="header" style="background-color:#2E2E2E;width:700px;">
+    <h1 style="margin-bottom:0; text-align:center"><font color="White">Superhero Groups</font></h1></div>
+
+<% include menu %>
+     <div id="content" style="background-color:#848484;height:700px;width:600px;float:left;text-align:left">
+
+
+
+<a href="/groups/view/">Click Here</a> 
+<a href="/heroes/">Heroes</a><br />
+<div id="table"></div>
+
+ 
+</div>
+<a href="/groups/view/">Click Here</a>
+
+<% include footer %>
+</html>

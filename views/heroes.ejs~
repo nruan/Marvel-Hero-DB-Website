@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+	
+	
+	       $.ajax({
+                  url: "/heroes/select",
+                  type: "POST",
+                  contentType: "application/json",
+                  processData: false,
+        <!--data: JSON.stringify(payload),-->
+                  complete: function (data) {
+                   $('div#select').html(data.responseText);
+        } 
+        });
+
+      $('#submit').click(function () {
+        var payload = {
+        Hero_name: $('#select').val(),
+        };
+
+        $.ajax({
+                        url: "/heroes",
+                        type: "POST",
+                        contentType: "application/json",
+                        processData: false,
+                        data: JSON.stringify(payload),
+                        complete: function (data) {
+                            $('#output').html(data.responseText);
+                        }
+                    });
+  });
+        });
+    </script>
+    <style>
+      img.Hero-pic
+      {
+      positon:relative;
+      bottom:-100px;
+      }
+    </style>
+  </head>
+    <div id="header" style="background-color:#2E2E2E;width:700px;">
+    <h1 style="margin-bottom:0; text-align:center"><font color="White">Heroes </font></h1></div>
+
+<% include menu %>
+
+     <div id="content" style="background-color:#848484;height:630px;width:600px;float:left;   text-align:left">
+
+<h3>Superhero Name</h3>
+<!--<div id = "select"></div>-->
+Name: <input id="select" type="text" /> <br />
+<input id ="submit" type="submit" />
+<p id="output"></p>
+
+    
+  <!--   <div id="picture" style:"float:left"> -->
+       <img class="Hero-pic" src="http://www.cartoontreasure.com/wallpapers/2013-09/avengers-silhouette-minimalism-desktop-1920x1200.jpg" alt="Hero-pic" height:"260" width="600">
+     </div>
+
+<% include footer %>
+</html>

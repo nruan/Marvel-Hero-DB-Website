@@ -1,0 +1,9 @@
+ <div id="menu" style="background-color:#B40404;height:700px;width:100px;float:left; text-align:center;">
+        <b><i>Menu</i></b><br>
+<a href="/">Home</a><br />	
+        <a href="/heroes/">Heroes</a><br />
+    <a href="/villains/">Villains</a>
+    <a href="/groups/table">Superhero Groups</a> <br />
+    <a href="/about/">About</a>
+
+    </div>

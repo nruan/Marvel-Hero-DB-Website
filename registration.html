@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#user-submit').click(function () {
+                var payload = {
+                    name: $('#name').val(),
+                    num_badges: $('#num_badges').val(),
+	            pokemon1: $('#pokemon1').val(),
+	            pokemon2: $('#pokemon2').val(),
+	            pokemon3: $('#pokemon3').val(),
+
+                };
+
+		console.log(payload);
+
+                $.ajax({
+                    url: "/registration",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    data: JSON.stringify(payload),
+                    complete: function (data) {
+                        $('#output').html(data.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+  </head>
+     <div id="header" style="background-color:#2E2E2E;width:700px;">
+    <h1 style="margin-bottom:0; text-align:center"><font color="White"> Registration </font></h1></div>
+    
+     <div id="menu" style="background-color:#B6B607;height:250px;width:100px;float:left; text-align:center;">
+        <b><i>Menu</i></b><br>
+	<a href="/">Home</a><br />
+    <a href="/participants/">Participants</a>
+    </div> 
+    
+    <div id="content" style="background-color:#848484;height:250px;width:600px;float:left;   text-align:center">
+  <body>
+    <h3>Please fill out the form to register for a Gym battle: </h3>
+    Name: <input id="name" type="text" /> <br />
+    Number of badges: <input id="num_badges" type="text" /> <br />
+    The three Pokemon that you would like to enter:</br><input id="pokemon1" type ="text" />
+      <input id="pokemon2" type="text" />
+      <input id="pokemon3" type ="text" /></br>
+    <input id="user-submit" type="submit" />
+    <!--<p id="output"></p> -->
+  </body>
+</div>
+<div id="picture">
+    <img src= "http://wallaadoo.com/wp-content/uploads/2014/04/arcanine-wallpaper.jpg" alt = "logo" width="700" height="400">
+    </div>
+
+<div id="footer" style="background-color:#b9bcc6;clear:both;text-align:center;width:700px">
+Made by Nico Ruan</div>
+</html>
+
+

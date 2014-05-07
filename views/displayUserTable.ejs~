@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+  <head>
+      <link rel="stylesheet" type="text/css" href="/stylesheet.css">
+</head>
+<% include header %>
+
+<% include menu %>
+
+ <div id="content" style="background-color:#848484;height:700px;width:600px;float:left;text-align:left">
+ <h3> Major Superhero Groups in the US</h3>
+
+   <% if(rs.length > 0) { %>
+    <table border="1" style=width"300px">
+    
+        <tr><th>Group Name</th><th>Headquarters</th></tr>
+        <% for (var i=0; rs.length > i; i++) { %>
+            <tr>
+             <td> <%= <a href="marvel.com/" + rs[i].Group_Name</a> rs[i].Group_Name  %></td>
+	     <td>  <%= rs[i].HQ %></td>
+            </tr>
+        <% } %>
+    </table>
+    <% } else { %>
+         No users are entered into the database.
+    <% } %>
+
+<a href="/groups/view/">Click Here</a> to see superheroes affiliated with a group and also have an identity that is publicly known
+</div>
+<% include footer %>
